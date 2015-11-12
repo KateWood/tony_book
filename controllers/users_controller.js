@@ -1,9 +1,13 @@
 var User = require('../models/user.js')
 
 //create index action to display all users
-module.exports.index = function() {
+function index(req, res) {
 	User.find({}, function(err, users) {
 		if (err) console.log(err)
-		return users
+		res.json(users)
 	})
+}
+
+module.exports = {
+	index: index
 }
