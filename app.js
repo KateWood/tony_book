@@ -15,6 +15,11 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
+//create the root route
+app.get('/', function(req, res) {
+	res.send('Welcome to the home page')
+})
+
 //sets the port for the server
 app.listen(port)
-console.log("Server started on", port)
+console.log('Server started on', port)
