@@ -20,6 +20,11 @@ app.get('/', function(req, res) {
 	res.send('Welcome to the home page')
 })
 
+//testing my user model
+var User = require('./models/user.js')
+var user1 = new User({user_name: 'kate', email: 'k@kate.com'})
+console.log(user1)
+
 //sets the port for the server
 app.listen(port)
 console.log('Server started on', port)
