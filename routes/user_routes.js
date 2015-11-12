@@ -7,4 +7,8 @@ userRoutes.route('/')
 	.get(usersController.index)
 	.post(usersController.create)
 
+//create routes for /users/:email
+userRoutes.route('/:email')
+	.get(usersController.show)
+
 module.exports = userRoutes

@@ -16,7 +16,7 @@ function create(req, res) {
 
 	user.user_name = req.body.user_name
 	user.email = req.body.email
-	
+
 	user.save(function(err){
 		if(err){
 			if(err.code == 11000){
@@ -24,12 +24,22 @@ function create(req, res) {
 			} else {
 				res.send(err)
 			}
+		} else {
+			res.json({success: true, message: 'User created, Wahey!'})
 		}
-		res.json({success: true, message: 'User created, Wahey!'})
+	})
+}
+
+//create action to show a single user
+function show(req, res) {
+	User.find({email: req.params.email}, function(err, user) {
+		if (err) console.log(err)
+		res.json(user)
 	})
 }
 
 module.exports = {
 	index: index,
-	create: create
+	create: create,
+	show: show
 }
