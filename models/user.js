@@ -7,3 +7,8 @@ var userSchema = new mongoose.Schema({
 	friends: [],
 	age: Number
 })
+
+//creates a method to display user's info
+userSchema.methods.info = function() {
+	console.log('My user_name is: ' + this.user_name + '. I am ' + this.age + ' years old.')
+}
