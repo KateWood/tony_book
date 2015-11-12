@@ -10,3 +10,7 @@ mongoose.connect('mongodb://localhost/users')
 
 //logs requests made to the app
 app.use(logger('dev'))
+
+//makes json objects available in requests
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
