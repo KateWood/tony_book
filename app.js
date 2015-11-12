@@ -3,7 +3,8 @@ var express		= require('express'),
 	logger		= require('morgan'),
 	bodyParser	= require('body-parser'),
 	mongoose	= require('mongoose'),
-	port 		= process.env.PORT || 3000
+	port 		= process.env.PORT || 3000,
+	userRoutes 	= require('./routes/user_routes.js')
 
 //establish connection to mongo database
 mongoose.connect('mongodb://localhost/users')
@@ -19,6 +20,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.get('/', function(req, res) {
 	res.send('Welcome to the home page')
 })
+
+//use user routes for those routes
+app.use('/users', userRoutes)
 
 //sets the port for the server
 app.listen(port)

@@ -3,7 +3,7 @@ var usersController = require('../controllers/users_controller.js'),
 	userRoutes		= express.Router() 
 
 //create the index route for all users
-userRoutes.get('/', function(req, res) {
-	//user the controller to retrieve all the users
-	res.json(usersController.index())
-})
+userRoutes.route('/')
+	.get(usersController.index)
+
+module.exports = userRoutes
