@@ -14,3 +14,7 @@ app.use(logger('dev'))
 //makes json objects available in requests
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
+
+//sets the port for the server
+app.listen(port)
+console.log("Server started on", port)
