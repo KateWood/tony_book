@@ -6,3 +6,6 @@ var express		= require('express'),
 
 //establish connection to mongo database
 mongoose.connect('mongodb://localhost/users')
+
+//logs requests made to the app
+app.use(logger('dev'))
